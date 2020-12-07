@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class Administrateur
+class RoleVerification
 {
     /**
      * Handle an incoming request.
@@ -17,8 +17,9 @@ class Administrateur
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::check()){
+        if (Auth::user()->role_id == 1){
             return $next($request);
+
         }else{
             return redirect()->back();
         }

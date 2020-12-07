@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,20 +16,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//administrateur
+
+Auth::routes();
+Auth::routes();
+Route::get('/home', [UserController::class, 'index'])->name('home');
+
+
+//Visiteur
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+//Membre
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/article', [HomeController::class,'index']);
 
-Auth::routes();
 
-Route::get('/home', function() {
-    return view('home');
-})->name('home');
-
-Route::get('/article', function() {
-    return view('pages.article');
-})->name('article')->middleware('admin');

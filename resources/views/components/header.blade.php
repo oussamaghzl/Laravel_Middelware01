@@ -23,7 +23,7 @@
       <form class="form-inline my-1 my-lg-0">
         <ul class="navbar-nav mr-auto row">
 
-            @if (Route::has('login'))
+            @if (Route::has('login') )
                 <div class="hidden fixed top-0 right-0 px-6 py-2 sm:block">
                     @auth
                     <li class="nav-item">

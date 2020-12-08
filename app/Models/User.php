@@ -23,6 +23,14 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function role () 
+    {
+        return $this->hasMany(Role::class);
+    }
+    public function article () 
+    {
+        return $this->hasMany(Article::class);
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

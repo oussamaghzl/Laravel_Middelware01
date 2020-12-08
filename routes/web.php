@@ -21,7 +21,15 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Auth::routes();
 Route::get('/home', [UserController::class, 'index'])->name('home');
+Route::get('/crud-article', [UserController::class, 'create'])->name('crud-article');
+Route::get('/list-article', [UserController::class, 'index2'])->name('list-article');
+Route::get('/show-article/{id}', [UserController::class, 'show']);
+Route::get('/edit-article/{id}', [UserController::class, 'edit']);
 
+//function
+
+Route::post('/create-article', [UserController::class, 'store']);
+Route::post('/delete-article/{id}', [UserController::class, 'destroy']);
 
 //Visiteur
 
